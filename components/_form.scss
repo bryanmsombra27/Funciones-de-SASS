@@ -1,0 +1,21 @@
+.form {
+
+
+    &__input {
+
+        @include formInput();
+        @include borderRadius();
+        @include animar();
+
+
+        &:active,
+        &:focus {
+            border: .1rem solid map-get($color, secondary);
+            color: map-get($color, negro);
+        }
+    }
+
+    &__label {
+        @include formLabel();
+    }
+}

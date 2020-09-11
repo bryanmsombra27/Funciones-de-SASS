@@ -1,0 +1,83 @@
+@mixin filtro($num:0) {
+    filter: grayscale($num);
+    -webkit-filter: grayscale($num);
+}
+
+/////////////////////////////////////////////////////////////////////
+@mixin animar($time:.5s, $effect:ease-in-out) {
+    transition: $time $effect;
+    -webkit-transition: $time $effect;
+    -moz-transition: $time $effect;
+    -ms-transition: $time $effect;
+    -o-transition: $time $effect;
+}
+
+@mixin sombra($x:0, $y:.9rem, $blur:1rem, $sombra:rgba(0, 0, 0, 0.3)) {
+    box-shadow: $x $y $blur $sombra;
+}
+
+@mixin escala($scale:1.1) {
+    transform: scale($scale);
+    -webkit-transform: scale($scale);
+    -moz-transform: scale($scale);
+    -ms-transform: scale($scale);
+    -o-transform: scale($scale);
+}
+
+@mixin borderRadius($radius:.5rem) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+@mixin button($colorBg:#adf, $colorLet:white, $textSize:1.6rem, $padUpDown:1rem, $padLeftR:2rem) {
+    // display: block;  
+    padding: $padUpDown $padLeftR;
+    color: $colorLet;
+    background-color: $colorBg;
+    text-decoration: none;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+    border: .1rem solid $colorBg;
+    font-size: $textSize;
+    cursor: pointer;
+}
+
+///grid padre
+@mixin gridContainer($size:100rem, $margen:0 auto, $columnMinSize:25rem, $columnMAxSize:30rem, $rows:3, $rowsSize:auto, $columns:auto-fit, $gap:4rem) {
+    display: grid;
+    max-width: $size;
+    margin: $margen;
+    grid-template-columns: repeat($columns, minmax($columnMinSize, $columnMAxSize));
+    grid-template-rows: repeat($rows, $rowsSize);
+    gap: $gap;
+}
+
+//grid hijo
+@mixin gridCard($span:3) {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span $span;
+
+}
+
+@mixin formInput($w:100%, $m:0 auto, $p:1rem 2rem, $borde:.1rem solid map-get($color, borde), $color:map-get($color, textColor)) {
+    display: block;
+    width: $w;
+    margin: $m;
+    padding: $p;
+    border: $borde;
+    color: $color;
+
+}
+
+@mixin formLabel($m:2rem auto 2rem, $f:2rem) {
+    display: block;
+    margin: $m;
+    font-size: $f;
+}
