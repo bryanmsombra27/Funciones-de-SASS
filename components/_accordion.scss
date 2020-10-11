@@ -1,0 +1,52 @@
+.accordion {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background: map-get($color, accordion);
+    font-size: 1.6rem;
+
+    &__contentBx {
+        max-width: 80rem;
+        position: relative;
+        margin: 1rem 2rem;
+
+        &--label {
+            position: relative;
+            padding: 1rem;
+            background: map-get($color, accordion2);
+            color: map-get($color, blanco);
+            cursor: pointer;
+
+            &::before {
+                content: "+";
+                position: absolute;
+                top: 50%;
+                right: 2rem;
+                font-size: 1.5rem;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+            }
+        }
+
+        &--content {
+            position: relative;
+            background: map-get($color, blanco);
+            height: 0;
+            overflow: hidden;
+            overflow-y: auto;
+            @include animar();
+
+            &.active {
+                height: 15rem;
+                padding: 1rem;
+
+            }
+        }
+
+
+    }
+}

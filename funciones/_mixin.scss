@@ -78,6 +78,6 @@
 
 @mixin formLabel($m:2rem auto 2rem, $f:2rem) {
     display: block;
-    margin: $m;
+    margin: $m; 
     font-size: $f;
 }
